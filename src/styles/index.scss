@@ -1,10 +1,51 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-.title {
+h1 {
     font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+}
+
+input {
+    width: 50%;
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 10px;
 }
 
 body {
     background: rgb(170, 170, 233);
+    font-family: cursive;
+}
+
+
+#listbar {
+    background: white;
+    width: 50%;
+    margin:auto;
+    font-size: xx-large;
+    list-style: none;
+    text-indent: 50px;
+    text-align: left;
+}
+
+#delete {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: right;
+    margin-right: 10px;
+
+}
+
+#task {
+    background: white;
+    width: 50%;
+    margin:auto;
+    font-size: xx-large;
+    text-indent: 30px;
+}
+
+#last {
+    font-size: 20px;
+    margin-left: -25px;
 }
 
