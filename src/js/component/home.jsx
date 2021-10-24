@@ -13,6 +13,7 @@ const Todo = () => {
 			setInputTask(inputTask);
 			const list = inputList.concat({ label: inputTask, done: false });
 			setInputList(list);
+			setInputTask("");
 		}
 	}
 	return (
@@ -20,6 +21,7 @@ const Todo = () => {
 			<h1>{"ToDo's"}</h1>
 			<input
 				type="text"
+				value={inputTask}
 				placeholder="What needs to be done?"
 				onChange={e => setInputTask(e.target.value)}
 				onKeyUp={addItem}
@@ -27,7 +29,7 @@ const Todo = () => {
 			<div id="listbar">
 				{inputList.map((todo, i) => (
 					<>
-						<li key={todo}>
+						<li>
 							{todo.label}
 							<button
 								className="btn btn-danger"
