@@ -1,33 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Todo = () => {
 	const [inputTask, setInputTask] = useState("");
-	const [inputList, setInputList] = useState([
-		{ label: "Walk the dog", done: false }
-	]);
-
-	useEffect(() => {
-		fetch("https://assets.breatheco.de/apis/fake/todos/user/ricardodsb", {
-			method: "GET",
-			body: JSON.stringify(inputList),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		})
-			.then(resp => {
-				console.log(resp.ok); // Será true (verdad) si la respuesta es exitosa.
-				console.log(resp.status); // el código de estado = 200 o código = 400 etc.
-				return resp.json(); // (regresa una promesa) will try to parse the result as json as return a promise that you can .then for results
-			})
-			.then(data => {
-				//Aquí es donde debe comenzar tu código después de que finalice la búsqueda
-				console.log(data); //esto imprimirá en la consola el objeto exacto recibido del servidor
-			})
-			.catch(error => {
-				//manejo de errores
-				console.log(error);
-			});
-	}, []);
+	const [inputList, setInputList] = useState([]);
 
 	function delItem(index) {
 		let setInput = inputList.filter((inputTask, i) => i !== index);
@@ -45,7 +20,6 @@ const Todo = () => {
 			<h1>{"ToDo's"}</h1>
 			<input
 				type="text"
-				value={inputTask}
 				placeholder="What needs to be done?"
 				onChange={e => setInputTask(e.target.value)}
 				onKeyUp={addItem}
