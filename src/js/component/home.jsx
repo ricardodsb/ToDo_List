@@ -4,18 +4,22 @@ const Todo = () => {
 	const [inputTask, setInputTask] = useState("");
 	const [inputList, setInputList] = useState([]);
 
-	function delItem(index) {
+	let delItem = index => {
 		let setInput = inputList.filter((inputTask, i) => i !== index);
 		setInputList(setInput);
-	}
-	function addItem(e) {
+	};
+	let addItem = e => {
 		if (e.keyCode == 13) {
 			setInputTask(inputTask);
+			if (!inputTask) {
+				alert("You need to insert a task");
+				list(false);
+			}
 			const list = inputList.concat({ label: inputTask, done: false });
 			setInputList(list);
 			setInputTask("");
 		}
-	}
+	};
 	return (
 		<div className="text-center mt-5">
 			<h1>{"ToDo's"}</h1>
